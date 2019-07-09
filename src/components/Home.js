@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import EventsCards from './EventsCards';
+import React, { Component } from 'react'
 
-export default class Events extends Component {
+export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +21,7 @@ export default class Events extends Component {
                     isLoaded: true,
                     events: res.data
                 });
-                console.log(res.data);
+                // console.log(res.data);
             },
             // Note: It's important to handle errors here 
             // instead of a catch() block so that we don't
@@ -40,20 +39,14 @@ export default class Events extends Component {
 
 
     render() {
-        const {error, isLoaded, events} = this.state;
+        const {error, isLoaded} = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
             return <div>Loading...</div>
         } else {
             return (
-                <div className="container">
-                    <div className="row">
-                        <div className="col s12">
-                            <EventsCards apidata={events} />
-                        </div>
-                    </div>
-                </div>
+                <h1>Home Page</h1>
             )
         }
     }
