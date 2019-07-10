@@ -31,9 +31,9 @@ export default class Navigation extends Component {
     render() {
         return (
             <div>
-                <Navbar className="navbar" color="dark" dark expand="md">
+                <Navbar className="navbar" color="dark" dark expand="md" fixed="top">
                     <NavbarBrand className="navbar-brand">
-                        <NavLink className="navlink" href="/">Event-Finder</NavLink>
+                        <NavLink className="navlink" href="/">EventFinder</NavLink>
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -46,7 +46,7 @@ export default class Navigation extends Component {
                             </NavItem>
                             <NavItem>
                                 <NavLink className="navlink" href="/about">About Us</NavLink>
-                            </NavItem>                            
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </Navbar>

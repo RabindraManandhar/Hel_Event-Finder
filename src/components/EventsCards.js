@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './EventsCards.css';
 import {Button} from 'reactstrap';
 
 class EventsCards extends Component {
@@ -8,7 +9,7 @@ class EventsCards extends Component {
             <div>
                 {this.props.apidata.map((eventCard, index) => {
                     return (
-                        <div className="col s12 m6 l3" key={index}>
+                        <div className="col s12 m6 l4" key={index}>
                             <div className="card">
                                 <div className="card-image waves-effect waves-block waves-light">
                                     {
@@ -16,12 +17,14 @@ class EventsCards extends Component {
                                     }
                                 </div>
                                 <div className="card-title">
-                                    <div>Event name:{eventCard.name.fi}</div>
+                                    <div><strong>Event Name:</strong></div>
+                                        <span>{eventCard.name.fi}</span>
                                 </div>
                                 <div className="card-content">
-                                    <div>Event Descriptions: {eventCard.description.intro}</div>
-                                    <div>Event Date: {eventCard.event_dates.starting_day}</div>
-
+                                    <div><strong>Event Descriptions:</strong></div>
+                                        <span>{eventCard.description.intro}</span>
+                                    <div><strong>Event Date:</strong></div>
+                                        <span>{eventCard.event_dates.starting_day}</span>
                                 </div>
                                 <Button>View Details</Button>
                             </div>

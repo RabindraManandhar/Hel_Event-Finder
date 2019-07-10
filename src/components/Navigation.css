@@ -1,16 +1,17 @@
 .navbar {
+    height: auto;
     min-height: 10vh !important;
     }
     
-  .navbar-brand {
+.navbar-brand {
     color: #fff !important;
     font-size: 1.563em !important;
     letter-spacing: 0.125rem !important;
-    }
-    
-  .navlink {
+}
+
+.navlink {
     color: #fff !important;
-    font-size: 1.125em !important;
-    }
+    font-size: 1.250em !important;
+}
+
   
-   

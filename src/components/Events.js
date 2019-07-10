@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Events.css';
 import EventsCards from './EventsCards';
 
 export default class Events extends Component {
