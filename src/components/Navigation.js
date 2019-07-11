@@ -32,20 +32,18 @@ export default class Navigation extends Component {
         return (
             <div>
                 <Navbar className="navbar" color="dark" dark expand="md" fixed="top">
-                    <NavbarBrand className="navbar-brand">
-                        <NavLink className="navlink" href="/">EventFinder</NavLink>
-                    </NavbarBrand>
+                    <NavbarBrand href="/">EventFinder</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink className="navlink" href="/home">Home</NavLink>
+                                <NavLink href="/home">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navlink" href="/events">Events</NavLink>
+                                <NavLink href="/events">Events</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navlink" href="/about">About Us</NavLink>
+                                <NavLink href="/about">About Us</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
