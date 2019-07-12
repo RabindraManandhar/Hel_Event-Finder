@@ -4,10 +4,10 @@ import {Button} from 'reactstrap';
 
 class EventsCards extends Component {
     render() {
-        // console.log(this.props.apidata)
+        // console.log(this.props.apiData)
         return (
             <div>
-                {this.props.apidata.map((eventCard, index) => {
+                {this.props.api.map((eventCard, index) => {
                     return (
                         <div className="col s12 m6 l4" key={index}>
                             <div className="card">
