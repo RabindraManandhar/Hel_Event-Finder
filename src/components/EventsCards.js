@@ -17,14 +17,12 @@ class EventsCards extends Component {
                                     }
                                 </div>
                                 <div className="card-title">
-                                    <div><strong>Event Name:</strong></div>
-                                        <span>{eventCard.name.fi}</span>
+                                    <h2>{eventCard.name.fi}</h2>
                                 </div>
                                 <div className="card-content">
-                                    <div><strong>Event Descriptions:</strong></div>
-                                        <span>{eventCard.description.intro}</span>
-                                    <div><strong>Event Date:</strong></div>
-                                        <span>{eventCard.event_dates.starting_day}</span>
+                                    {/* <div>{eventCard.description.intro}</div>
+                                    <br /> */}
+                                    <h3>{eventCard.event_dates.starting_day}</h3>  
                                 </div>
                                 <Button>View Details</Button>
                             </div>

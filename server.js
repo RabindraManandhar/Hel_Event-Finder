@@ -14,7 +14,7 @@ const getEvents = (options = {}) => {
 
   try {
 
-    console.log('http://open-api.myhelsinki.fi/v1/events/' + options);
+    console.log('http://open-api.myhelsinki.fi/v1/events/?limit=25' + options);
 
     return axios.get('http://open-api.myhelsinki.fi/v1/events/' + options).then(response => CircularJSON.stringify(response.data))
 

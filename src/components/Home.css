@@ -1,3 +1,11 @@
-body {
-    margin-top: 15vh !important;
+.loading-element {
+    height: 100% !important;
+}
+
+.container-element {
+    height: calc(100vh - 14vh) !important;
+}
+
+.map-element {
+    height: 100% !important;
 }
