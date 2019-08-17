@@ -10,106 +10,67 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        error: null,
-        loading: true,
-        events: [],
-        searchTerm: '',
-        distance: 2
-    };
-    // this.apiKey = process.env.REACT_APP_API_KEY
-  } 
-
-  componentDidMount() {
-    fetch("http://localhost:3030/api/events/?limit=100")
-        .then(res => {
-            return res.json()
-        })
-        .then(res => {
-            this.setState({
-                loading: false,
-                events: res.data
-            });
-            //console.log(res.data);
-        },
-        // Note: It's important to handle errors here 
-        // instead of a catch() block so that we don't
-        // swallow exceptions from actual bugs in components.
-
-        (error) => {
-            this.setState({
-                loading: true,
-                error
-            });
-        });
+      error: null,
+      loading: true,
+      events: [],
+      searchTerm: ''
+    }
+    this.fetchAllEvents = this.fetchAllEvents.bind(this);
+    this.fetchTaggedEvents = this.fetchTaggedEvents.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(encodeURI(`http://localhost:3030/api/events/?tags_search=${this.state.searchTerm}&limit=100`));
+  fetchAllEvents() {
+  fetch(encodeURI(`http://localhost:3030/api/events/?limit=1000`))
+    .then(res => {
+      if(res.ok) {
+        return res.json();
+      } else {
+        throw new Error('Something went wrong...');
+      }
+    })
+    .then(res => {
+      this.setState({
+        loading: false,
+        events: res.data
+      })
+      console.log(res.data);
+    })
+    .catch(error => this.setState({error, loading: false}));
+  }
 
-    fetch(encodeURI(`http://localhost:3030/api/events/?tags_search=${this.state.searchTerm}`))
+  fetchTaggedEvents() {
+    fetch(encodeURI(`http://localhost:3030/api/events/?tags_search=${this.state.searchTerm}&limit=100`))
       .then(res => {
-        return res.json()
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error('Something went wrong...');
+        }
       })
       .then(res => {
         this.setState({
           loading: false,
           events: res.data
-        });
-        //console.log(res.data);
-      },
-        // Note: It's important to handle errors here 
-        // instead of a catch() block so that we don't
-        // swallow exceptions from actual bugs in components.
+        })
+        console.log(res.data);
+      })
+      .catch(error => this.setState({error, loading: false}));
+  }
 
-        (error) => {
-          this.setState({
-            loading: true,
-            error
-          });
-        });
-
-    // console.log("searched keywords: ", this.state.searchTerm);
+  handleSubmit(e) {
+    e.preventDefault();
+    this.fetchTaggedEvents();
   }
 
 
-  handleInputChange = (e) => {
-    console.log("search input change");
+  handleInputChange(e) {
     this.setState({searchTerm: e.target.value})
   }
 
-  handleDistanceChange = (e) => {
-    this.setState({distance: e.target.value})
-  }
-
-  handleDistanceSubmit = (e) => {
-    console.log("sdfsd")
-    e.preventDefault();
-    // console.log(encodeURI(`http://localhost:3030/api/events/?tags_search=${this.state.searchTerm}&limit=100`));
-
-    fetch(encodeURI(`http://localhost:3030/api/events/?distance_filter=60.2433272,24.8560624,${this.state.distance}`))
-      .then(res => {
-        return res.json()
-      })
-      .then(res => {
-        this.setState({
-          loading: false,
-          events: res.data
-        });
-        //console.log(res.data);
-      },
-        // Note: It's important to handle errors here 
-        // instead of a catch() block so that we don't
-        // swallow exceptions from actual bugs in components.
-
-        (error) => {
-          this.setState({
-            loading: true,
-            error
-          });
-        });
-
-    console.log("searched keywords: ", this.state.searchTerm);
+  componentDidMount() {
+    this.fetchAllEvents();
   }
 
   render(){
@@ -119,22 +80,30 @@ export default class App extends React.Component {
           <Navigation />
           <Switch>
             <Route exact path="/" 
-                    render={(routeProps) => (<Home {...routeProps} apiData={this.state.events} error={this.state.error} loading={this.state.loading}/>)}
+                    render={(routeProps) => (<Home {...routeProps} 
+                      apiData={this.state.events}
+                      error={this.state.error}
+                      loading={this.state.loading}/>)}
             />
             <Route path="/home" 
-                    render={(routeProps) => (<Home {...routeProps} apiData={this.state.events} error={this.state.error} loading={this.state.loading}/>)} 
+                    render={(routeProps) => (<Home {...routeProps}
+                      apiData={this.state.events}
+                      error={this.state.error}
+                      loading={this.state.loading}/>)} 
             />
             <Route path="/events" 
                     render={(routeProps) => (<Events {...routeProps} 
                       apiData={this.state.events} 
                       handleInputChange={this.handleInputChange} 
                       handleSubmit={this.handleSubmit}
-                      handleDistanceChange={this.handleDistanceChange}
-                      handleDistanceSubmit={this.handleDistanceSubmit}
-                      error={this.state.error} loading={this.state.loading} />)}
+                      error={this.state.error}
+                      loading={this.state.loading} />)}
             />
             <Route path="/about"
-                    render={(routeProps) => (<About {...routeProps} apiData={this.state.events} error={this.state.error} loading={this.state.loading}/>)}
+                    render={(routeProps) => (<About {...routeProps}
+                      apiData={this.state.events}
+                      error={this.state.error}
+                      loading={this.state.loading}/>)}
             />
           </Switch>
         </div>

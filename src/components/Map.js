@@ -14,12 +14,12 @@ export default withScriptjs(withGoogleMap((props) => {
   });
 
 
-  console.log(props.api)
+  // console.log(props.api)
 
   /** get user location */
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log('lat, long: ', position.coords.latitude, position.coords.longitude);
+      // console.log('lat, long: ', position.coords.latitude, position.coords.longitude);
       setLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
     }
     )
@@ -51,7 +51,7 @@ export default withScriptjs(withGoogleMap((props) => {
             setSelectedEvent(event);
           }}
         />
-      ))}xus
+      ))}
 
       {selectedEvent && (
         <InfoWindow
