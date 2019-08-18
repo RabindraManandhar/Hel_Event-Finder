@@ -18,7 +18,7 @@ export default class App extends React.Component {
     this.fetchAllEvents = this.fetchAllEvents.bind(this);
     this.fetchTaggedEvents = this.fetchTaggedEvents.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   fetchAllEvents() {
@@ -65,7 +65,7 @@ export default class App extends React.Component {
   }
 
 
-  handleInputChange(e) {
+  handleChange(e) {
     this.setState({searchTerm: e.target.value})
   }
 
@@ -94,7 +94,7 @@ export default class App extends React.Component {
             <Route path="/events" 
                     render={(routeProps) => (<Events {...routeProps} 
                       apiData={this.state.events} 
-                      handleInputChange={this.handleInputChange} 
+                      handleChange={this.handleChange} 
                       handleSubmit={this.handleSubmit}
                       error={this.state.error}
                       loading={this.state.loading} />)}

@@ -1,4 +1,11 @@
 import React from 'react';
+// import Select from 'react-select'
+
+// const options = [
+//     {value: 'music', label: 'music'}
+//     {value: 'games', label: 'games'}
+// ]
+
 
 const SearchArea = (props) => {
     return (
@@ -7,13 +14,9 @@ const SearchArea = (props) => {
                 <section className="col s12 m4 l3">
                     <form action="" onSubmit={props.handleSubmit}>
                         <div className="input-field">
-                            <input placeholder="Search Event" type="text" onChange={props.handleInputChange} />
+                            <input placeholder="Search Event" type="text" onChange={props.handleChange} />
                             <button type="submit" >Search</button>
                         </div>
-                    </form>
-                    <form action="" onSubmit={props.handleDistanceSubmit}>
-                        <input placeholder="Distance range" type="number" min="0" max="5" range="1" onChange={props.handleDistanceChange} />
-                        <button type="submit">Search</button>
                     </form>
                 </section>
             </div>
