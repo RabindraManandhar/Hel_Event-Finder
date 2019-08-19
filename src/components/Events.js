@@ -20,7 +20,7 @@ class Events extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col s12">
-                        <SearchArea handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />
+                        <SearchArea options={this.props.options} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />
                         <EventsCards api={this.props.apiData} />
                     </div>
                 </div>

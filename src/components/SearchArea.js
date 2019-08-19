@@ -1,9 +1,10 @@
 import React from 'react';
-// import Select from 'react-select'
+import './SearchArea.css'
+import Select from 'react-select'
 
 // const options = [
-//     {value: 'music', label: 'music'}
-//     {value: 'games', label: 'games'}
+//     { value: 'music', label: 'music' },
+//     { value: 'theatre', label: 'theatre' },
 // ]
 
 
@@ -14,8 +15,9 @@ const SearchArea = (props) => {
                 <section className="col s12 m4 l3">
                     <form action="" onSubmit={props.handleSubmit}>
                         <div className="input-field">
-                            <input placeholder="Search Event" type="text" onChange={props.handleChange} />
-                            <button type="submit" >Search</button>
+                            <Select options={props.options} onChange={props.handleChange} />
+                            {/* <input placeholder="Search Event" type="text" onChange={props.handleChange} />
+                            <button type="submit" >Search</button> */}
                         </div>
                     </form>
                 </section>
