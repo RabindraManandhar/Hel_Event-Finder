@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Events.css';
-import EventsCards from './EventsCards';
-import SearchArea from './SearchArea';
+import EventsCards from './EventsCards/EventsCards';
+import SearchArea from './SearchArea/SearchArea';
 
 class Events extends Component {
     render() {
@@ -20,7 +20,7 @@ class Events extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col s12">
-                        <SearchArea options={this.props.options} handleChange={this.props.handleChange} handleSubmit={this.props.handleSubmit} />
+                        <SearchArea options={this.props.options} handleChange={this.props.handleChange} />
                         <EventsCards api={this.props.apiData} />
                     </div>
                 </div>

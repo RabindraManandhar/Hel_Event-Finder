@@ -13,13 +13,13 @@ const SearchArea = (props) => {
         <div className="container">
             <div className="row">
                 <section className="col s12 m4 l3">
-                    <form action="" onSubmit={props.handleSubmit}>
+                    <Select options={props.options} onChange={props.handleChange} />
+                    {/* <form action="" onSubmit={props.handleSubmit}>
                         <div className="input-field">
-                            <Select options={props.options} onChange={props.handleChange} />
-                            {/* <input placeholder="Search Event" type="text" onChange={props.handleChange} />
-                            <button type="submit" >Search</button> */}
+                            <input placeholder="Search Event" type="text" onChange={props.handleChange} />
+                            <button type="submit" >Search</button>
                         </div>
-                    </form>
+                    </form> */}
                 </section>
             </div>
         </div>

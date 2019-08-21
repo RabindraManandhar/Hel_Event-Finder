@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Navigation from './Navigation';
-import Home from './Home';
-import Events from './Events';
-import About from './About';
+import Navigation from '../Components/Navigation/Navigation';
+import Home from '../Components/Home/Home';
+import Events from '../Components/Events/Events';
+import About from '../Components/About/About';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 export default class App extends React.Component {
@@ -18,7 +18,6 @@ export default class App extends React.Component {
     }
     this.fetchAllEvents = this.fetchAllEvents.bind(this);
     this.fetchTaggedEvents = this.fetchTaggedEvents.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -59,7 +58,7 @@ export default class App extends React.Component {
         options: tagOptions
       });
 
-      console.log(res.data);
+      // console.log(res.data);
     })
     .catch(error => this.setState({error, loading: false}));
   }
@@ -78,16 +77,10 @@ export default class App extends React.Component {
           loading: false,
           events: res.data
         })
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(error => this.setState({error, loading: false}));
   }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.fetchTaggedEvents();
-  }
-
 
   handleChange(selectedOption) {
     this.setState({selectedOption: selectedOption}, () => {
