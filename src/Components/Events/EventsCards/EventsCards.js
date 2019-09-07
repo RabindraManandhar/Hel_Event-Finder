@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './EventsCards.css';
-import {Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class EventsCards extends Component {
     render() {
@@ -12,25 +12,21 @@ class EventsCards extends Component {
                             <div className="card">
                                 <div className="card-image waves-effect waves-block waves-light">
                                     {
-                                        <img src={eventCard.description.images.length ? eventCard.description.images[0].url : `http://www.bruttles.com/layout/images/NoPhotoDefault.png?1323807363`} alt="Card" style={{width: "100%", height: 240}} />
+                                        <img src={eventCard.description.images.length ? eventCard.description.images[0].url : `http://www.bruttles.com/layout/images/NoPhotoDefault.png?1323807363`} alt="Card" />
                                     }
                                 </div>
-                                <div className="card-title">
-                                    <h2>{eventCard.name.fi}</h2>
-                                </div>
-                                <div className="card-content">
-                                    {/* <div>{eventCard.description.intro}</div>
-                                    <br /> */}
-                                    <h3>{eventCard.event_dates.starting_day}</h3>  
-                                </div>
+                                <h3>{eventCard.name.fi}</h3>
+                                <p>{eventCard.location.address.street_address}</p>
+                                <p>Starting date: {eventCard.event_dates.starting_day}</p>
                                 <Button>View Details</Button>
                             </div>
                         </div>
-                    )   
+                    )
                 })}
             </div>
         );
-    }   
+    }
 }
 
 export default EventsCards;
+

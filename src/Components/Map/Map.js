@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Map.css';
 
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
@@ -24,7 +25,7 @@ export default withScriptjs(withGoogleMap((props) => {
     }
     )
   },
-  []
+    []
   )
 
   return (
@@ -37,7 +38,7 @@ export default withScriptjs(withGoogleMap((props) => {
       center={{ lat: location.lat, lng: location.lng }}
 
     >
-      {/** data pass as props from index.js */}
+      {/** data pass as props from app.js */}
       {props.api.map((event, index) => (
 
         <Marker
@@ -64,10 +65,10 @@ export default withScriptjs(withGoogleMap((props) => {
           }}
         >
           <div>
-            <h2> {selectedEvent.name.fi}</h2>
-            <p>Description: {selectedEvent.description.intro}</p>
-            <p>Address: {selectedEvent.location.address.street_address}</p>
-            <p>Events info: {selectedEvent.info_url}</p>
+            <h3>{selectedEvent.name.fi}</h3>
+            <p>{selectedEvent.description.intro}</p>
+            <p>{selectedEvent.location.address.street_address}</p>
+            <p>{selectedEvent.info_url}</p>
             <p>Starting date: {selectedEvent.event_dates.starting_day}</p>
             <p>Ending date: {selectedEvent.event_dates.ending_day}</p>
           </div>

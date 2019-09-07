@@ -6,6 +6,8 @@ const port = 3030;
 
 const axios = require('axios');
 
+const path = require('path');
+
 const CircularJSON = require('circular-json');
 
 
@@ -29,7 +31,7 @@ const getEvents = (options = {}) => {
 }
 
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 
   res.setHeader("Access-Control-Allow-Origin", "*");
 
