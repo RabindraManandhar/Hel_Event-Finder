@@ -17,3 +17,11 @@ div {
     color: #fff !important;
     font-size: 1.5rem !important;
 }
+
+@media only screen and (max-width: 767px) {
+    .navbar-collapse {
+        text-align: center !important;
+        background-color: #343a40 !important;
+        opacity: 0.9;
+    }
+}
