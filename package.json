@@ -2,11 +2,13 @@
   "name": "helsinki-event-finder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rabindramanandhar.github.io/Hel_Event-Finder",
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "circular-json": "^0.5.9",
     "dotenv": "^8.0.0",
+    "gh-pages": "^2.1.1",
     "lint-staged": "^9.1.0",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
@@ -24,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "node-env-run server --exec nodemon | pino-colada",
+    "deploy": "gh-pages -d public"
   },
   "eslintConfig": {
     "extends": "react-app"
