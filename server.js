@@ -10,8 +10,6 @@ const path = require('path');
 
 const CircularJSON = require('circular-json');
 
-
-
 const getEvents = (options = {}) => {
 
   try {
@@ -30,7 +28,6 @@ const getEvents = (options = {}) => {
 
 }
 
-
 app.use(function (req, res, next) {
 
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -40,8 +37,6 @@ app.use(function (req, res, next) {
   next();
 
 });
-
-
 
 app.get('/api/events/', async (req, res, next) => {
 
