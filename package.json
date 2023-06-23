@@ -5,7 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "axios": "^0.19.2",
-    "concurrently": "^5.1.0"
+    "concurrently": "^8.2.0"
   },
   "devDependencies": {
     "express": "^4.17.1"
